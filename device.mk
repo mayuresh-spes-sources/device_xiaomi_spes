@@ -3,6 +3,8 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
+# Viper
+$(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
