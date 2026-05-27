@@ -1,0 +1,49 @@
+cc_defaults {
+    name: "qtiaudio_extn_defaults",
+
+    cflags: [
+        "-Werror",
+    ],
+
+    include_dirs: [
+        "external/tinyalsa/include",
+        "external/tinycompress/include",
+        "hardware/qcom-caf/sm8250/audio/hal",
+        "hardware/qcom-caf/sm8250/audio/hal/msm8974",
+        "system/media/audio_route/include",
+        "system/media/audio_utils/include",
+    ],
+
+    header_libs: [
+        "libhardware_headers",
+        "qti_kernel_headers",
+    ],
+
+    shared_libs: [
+        "libcutils",
+        "liblog",
+    ],
+
+    sanitize: {
+        integer_overflow: true,
+    },
+}
+
+cc_library_shared {
+    name: "libaudiozoom",
+    defaults: ["qtiaudio_extn_defaults"],
+    vendor: true,
+
+    srcs: [
+        "audiozoom.c",
+        "device_utils.c",
+    ],
+
+    include_dirs: [
+        "external/expat/lib",
+    ],
+
+    shared_libs: [
+        "libexpat",
+    ],
+}
